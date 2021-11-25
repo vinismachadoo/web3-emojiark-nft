@@ -2,8 +2,8 @@ import Background from "../components/Background";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import WalletButton from "../components/WalletButton";
-import NftList from "../components/nftList";
-import NftTransaction from "../components/nftTransaction";
+import NftList from "../components/NftList";
+import NftTransaction from "../components/NftTransaction";
 import useWallet from "../hooks/useWallet";
 import NetworkConnection from "../components/NetworkConnection";
 
