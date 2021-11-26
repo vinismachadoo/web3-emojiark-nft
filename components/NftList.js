@@ -15,10 +15,9 @@ const NftList = ({ nftList, nftLoading, isRinkeby }) => {
           Buffer.from(jsonContentEncoded, "base64").toString("binary")
         );
 
-        const tokenId = Math.trunc(Number.parseFloat(nft.tokenId));
         return (
           <a
-            href={`https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId}`}
+            href={`https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${nft.tokenId}`}
             target="_blank"
             key={idx}
           >
