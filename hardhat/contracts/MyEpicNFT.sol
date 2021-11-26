@@ -15,6 +15,16 @@ contract MyEpicNFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
+    event NewEpicNFTMinted(address indexed sender, uint256 tokenId, string tokenUri);
+
+    struct EpicNft { // struct -> custom datatype (schema)
+        address sender; // The address of the user who waved.
+        uint256 tokenId; // The number of the nft minted.
+        string tokenUri; // The nft metadata.
+    }
+
+    EpicNft[] epicNfts; // variable wave will store an array of structs Wave
+
     // This is our SVG code. All we need to change is the word that's displayed. Everything else stays the same.
     // So, we make a baseSvg variable here that all our NFTs can use.
     string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 300 300'><style>.base { fill: white; font-family: serif; font-size: 50px; }</style>";
@@ -32,17 +42,7 @@ contract MyEpicNFT is ERC721URIStorage {
     string[] arraySeven = [unicode"🐐", unicode"🦔", unicode"🐶", unicode"🦉", unicode"🦥", unicode"🦌"];
     string[] arrayEight = [unicode"🦃", unicode"🐴", unicode"🦦", unicode"🦂", unicode"🐵", unicode"🐻"];
     string[] arrayNine = [unicode"🦫", unicode"🐧", unicode"🦙", unicode"🦓", unicode"🐼", unicode"🐝"];
-
-    event NewEpicNFTMinted(address sender, uint256 tokenId, string tokenUri);
-
-    struct EpicNft { // struct -> custom datatype (schema)
-        address sender; // The address of the user who waved.
-        uint256 tokenId; // The number of the nft minted.
-        string tokenUri; // The nft metadata.
-    }
-
-    EpicNft[] epicNfts; // variable wave will store an array of structs Wave
-
+    
     // We need to pass the name of our NFTs token and it's symbol.
     constructor() ERC721 ("Emoji's Ark", "SQUARE") {
         rectangles["FIRST"] = "<rect width='100' height='100' x='0' y='0' fill='#D0EBC5' /><text x='50' y='50' class='base' dominant-baseline='middle' text-anchor='middle'>";
