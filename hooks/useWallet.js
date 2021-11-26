@@ -88,11 +88,11 @@ export default function useWallet() {
 
     const nftsCleaned = (nft) => ({
       address: nft.minter,
-      tokenId: ethers.utils.formatEther(nft.tokenId),
+      tokenId: nft.tokenId.toNumber(), // format bigNumber to number
       tokenUri: nft.tokenUri,
     });
 
-    return allNfts.map(nftsCleaned).reverse();
+    return allNfts.map(nftsCleaned);
   };
 
   const updateNfts = useCallback(
@@ -119,16 +119,17 @@ export default function useWallet() {
       provider
     );
 
-    wavePortalContract.on("NewEpicNFTMinted", (minter, tokenId, tokenUri) => {
-      callback({ minter, tokenId, tokenUri });
+    wavePortalContract.on("NewEpicNFTMinted", (sender, tokenId, tokenUri) => {
+      callback({ sender, tokenId, tokenUri });
     });
   };
 
   useEffect(() => {
-    subscribeToNftEvents((newWave) => {
+    subscribeToNftEvents((newNft) => {
       updateNfts(walletConnected, isRinkeby);
     });
     // SUBSCRICE ONCE when mounting the component
+    // in case user ALREADY had their wallet connected + authorized.
   }, []);
 
   const writeNft = () => {
@@ -164,7 +165,7 @@ export default function useWallet() {
         // wait for wave to finish
         await transaction.wait();
         // update
-        // updateWaves(walletConnected, isRinkeby);
+        updateNfts(walletConnected, isRinkeby);
         // update wave status to begin
         console.log(
           `Mined, see transaction: https://rinkeby.etherscan.io/tx/${transaction.hash}`
@@ -205,6 +206,7 @@ export default function useWallet() {
   }, [walletInstalled]);
 
   useEffect(() => {
+    // in case user connected their wallet for the first time.
     updateNfts(walletConnected, isRinkeby);
   }, [walletConnected, isRinkeby]);
 
