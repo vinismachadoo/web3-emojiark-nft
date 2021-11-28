@@ -1,7 +1,7 @@
 const Header = () => {
   return (
-    <div className="flex text-black w-5/6 md:w-2/3">
-      <div className="flex items-center mr-3 md:mr-6">
+    <div className="flex text-black w-5/6 lg:w-4/5">
+      <div className="hidden sm:flex items-center mr-3 md:mr-6">
         <img
           className="h-16 md:h-24 w-16 md:w-24"
           src="/paint-kit-dynamic-color.png"

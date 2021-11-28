@@ -35,7 +35,7 @@ export default function Home() {
               walletBalance={walletBalance}
             />
             <Header />
-            <div className="flex my-6">
+            <div className="flex my-6 justify-start md:justify-start xl:justify-center w-5/6 lg:w-4/5 overflow-x-auto">
               <NftList
                 nftList={nftList}
                 nftLoading={nftLoading}
