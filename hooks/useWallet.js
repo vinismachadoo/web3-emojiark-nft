@@ -224,7 +224,7 @@ export default function useWallet() {
     getAccount();
   }, [walletConnected]);
 
-  // if wallet account
+  // when wallet account changes or nft is minted, get balance and update conectted state
   useEffect(() => {
     const getBalance = async () => {
       const provider = new ethers.providers.Web3Provider(
@@ -234,15 +234,17 @@ export default function useWallet() {
       const balance = await provider.getBalance(walletAccount);
       setBalance(ethers.utils.formatEther(balance));
     };
+
     const updateWalletConnected = async () => {
       setConnected(await isWalletConnected());
     };
-    // set balance
+
     if (walletAccount) {
+      // set balance
       getBalance();
       updateWalletConnected();
     }
-  }, [walletAccount]);
+  }, [walletAccount, nftList]);
 
   return {
     walletInstalled,
