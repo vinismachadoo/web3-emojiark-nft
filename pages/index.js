@@ -24,8 +24,8 @@ export default function Home() {
   return (
     <>
       <Background />
-      <div className="items-center flex justify-center py-24">
-        <div className="overflow-y-auto z-10 w-4/5 md:w-3/4 lg:w-2/3">
+      <div className="items-center flex justify-center h-screen">
+        <div className="w-4/5 md:w-3/4 lg:w-2/3">
           <div className="bg-clip-padding backdrop-blur-md bg-opacity-50 bg-white w-full max-h-full rounded-xl items-center flex flex-col justify-center text-white text-center pt-10 pb-6 px-2 md:px-6">
             <NetworkConnection
               walletInstalled={walletInstalled}
@@ -35,7 +35,7 @@ export default function Home() {
               walletBalance={walletBalance}
             />
             <Header />
-            <div className="flex my-6 justify-start md:justify-start xl:justify-center w-5/6 lg:w-4/5 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-400 hover:scrollbar-thumb-gray-500 scrollbar-track-transparent">
+            <div className="flex my-6 justify-start md:justify-start xl:justify-center w-5/6 lg:w-4/5 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-white hover:scrollbar-thumb-gray-100 scrollbar-track-transparent">
               <NftList
                 nftList={nftList}
                 nftLoading={nftLoading}

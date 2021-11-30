@@ -13,7 +13,7 @@ const Footer = () => {
         built with 🖤 by{" "}
         <span className="underline">{`@${TWITTER_USERNAME}`}</span>
       </a>
-      <p className="mx-1 hidden md:block">&mdash;</p>
+      <p className="mx-1 hidden md:block">•</p>
       <a
         className="hidden md:block"
         href={`${GITHUB_LINK}${GITHUB_USERNAME}`}
@@ -21,7 +21,7 @@ const Footer = () => {
       >
         <img className="w-4 h-4 mx-1" src="/github.png" alt="github" />
       </a>
-      <p className="mx-1 hidden md:block">&mdash;</p>
+      <p className="mx-1 hidden md:block">•</p>
       <a
         className="mt-1 md:mt-0"
         href={`https://rinkeby.etherscan.io/address/${CONTRACT_ADDRESS}#code`}
