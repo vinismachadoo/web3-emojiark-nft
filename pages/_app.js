@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
     <div className="overscroll-y-auto scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-white hover:scrollbar-thumb-gray-100 scrollbar-track-transparent">
       <Head>
         <title>EmojiArk NFT</title>
-        <link rel="icon" href="/icon.png" />
+        <link rel="icon" href="/unicorn.png" />
       </Head>
       <Component {...pageProps} />
     </div>
