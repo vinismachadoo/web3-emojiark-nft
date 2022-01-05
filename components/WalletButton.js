@@ -21,17 +21,27 @@ const WalletButton = ({
     <div>
       {!walletInstalled && (
         <a href="https://metamask.io/download.html" target="_blank">
-          <button className="px-3 py-0.5 text-sm md:text-lg rounded-lg border-2 border-black bg-black hover:bg-transparent hover:text-black">
-            Install MetaMask ⬇️
+          <button className="flex items-center px-3 py-0.5 text-sm md:text-lg rounded-lg border-2 border-black bg-black hover:bg-transparent hover:text-black">
+            Install MetaMask
+            <img
+              src="/download.png"
+              alt="download"
+              className="w-3 sm:w-4 h-3 sm:h-4 ml-2"
+            />
           </button>
         </a>
       )}
       {walletInstalled && !walletConnected && (
         <button
-          className="px-3 py-0.5 text-sm md:text-lg rounded-lg border-2 border-black bg-black hover:bg-transparent hover:text-black"
+          className="flex items-center px-3 py-0.5 text-sm md:text-lg rounded-lg border-2 border-black bg-black hover:bg-transparent hover:text-black"
           onClick={() => connectWallet()}
         >
-          Connect Wallet 🦊
+          Connect Wallet
+          <img
+            src="/metamask.png"
+            alt="metamask"
+            className="w-3 sm:w-4 h-3 sm:h-4 ml-2"
+          />
         </button>
       )}
       {walletConnected && (
@@ -41,11 +51,16 @@ const WalletButton = ({
             isRinkeby && nftLoading === TRANSACTION_STATUS.None
               ? "hover:bg-transparent hover:border-black hover:text-black"
               : "opacity-50 cursor-not-allowed",
-            "px-3 py-0.5 text-sm md:text-lg rounded-lg border-2 border-black bg-black"
+            "flex items-center px-3 py-0.5 text-sm md:text-lg rounded-lg border-2 border-black bg-black"
           )}
           onClick={() => mintNft()}
         >
-          Mint your NFT 🦄
+          Mint your NFT
+          <img
+            src="/unicorn.png"
+            alt="unicorn"
+            className="w-3 sm:w-4 h-3 sm:h-4 ml-2"
+          />
         </button>
       )}
     </div>
