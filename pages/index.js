@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Background />
-      <div className="items-center flex justify-center h-screen">
+      <div className="relative items-center flex justify-center h-screen z-30">
         <div className="w-4/5 md:w-3/4 lg:w-2/3">
           <div className="bg-clip-padding backdrop-blur-md bg-opacity-50 bg-white w-full max-h-full rounded-xl items-center flex flex-col justify-center text-white text-center pt-10 pb-6 px-2 md:px-6">
             <NetworkConnection
