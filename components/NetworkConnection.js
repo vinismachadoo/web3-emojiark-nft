@@ -41,7 +41,7 @@ const NetworkConnection = ({
   return (
     <div>
       {walletConnected && !isRinkeby && (
-        <div className="text-black mb-4">
+        <div className="flex flex-col items-center justify-center md:flex md:flex-row items-center text-xs md:text-sm text-black mb-4 px-4">
           <img
             src="/warning.png"
             alt="warning"
